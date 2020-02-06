@@ -20,6 +20,7 @@
 		B7FC144223EC8647001487D4 /* TopStoriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC144023EC863C001487D4 /* TopStoriesAPIClient.swift */; };
 		B7FC144323EC864A001487D4 /* TopStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC143E23EC8520001487D4 /* TopStory.swift */; };
 		B7FC144623EC8689001487D4 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7FC144523EC8689001487D4 /* ImageKit */; };
+		B7FC144823EC8BF2001487D4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC144723EC8BF2001487D4 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B77B40E323EC7177003ACB94 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
 		B7FC143E23EC8520001487D4 /* TopStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStory.swift; sourceTree = "<group>"; };
 		B7FC144023EC863C001487D4 /* TopStoriesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStoriesAPIClient.swift; sourceTree = "<group>"; };
+		B7FC144723EC8BF2001487D4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,8 @@
 		B77B40B623EC6B60003ACB94 /* NYTimesTopStories */ = {
 			isa = PBXGroup;
 			children = (
+				B7FC144023EC863C001487D4 /* TopStoriesAPIClient.swift */,
+				B7FC143E23EC8520001487D4 /* TopStory.swift */,
 				B77B40E523EC717C003ACB94 /* Views */,
 				B77B40DC23EC6E2D003ACB94 /* Controllers */,
 				B77B40DB23EC6E1E003ACB94 /* Supporting FIles */,
@@ -111,12 +115,11 @@
 		B77B40DB23EC6E1E003ACB94 /* Supporting FIles */ = {
 			isa = PBXGroup;
 			children = (
-				B7FC144023EC863C001487D4 /* TopStoriesAPIClient.swift */,
-				B7FC143E23EC8520001487D4 /* TopStory.swift */,
 				B77B40B723EC6B60003ACB94 /* AppDelegate.swift */,
 				B77B40B923EC6B60003ACB94 /* SceneDelegate.swift */,
 				B77B40C023EC6B62003ACB94 /* Assets.xcassets */,
 				B77B40C223EC6B62003ACB94 /* LaunchScreen.storyboard */,
+				B7FC144723EC8BF2001487D4 /* Config.swift */,
 			);
 			path = "Supporting FIles";
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				B77B40B823EC6B60003ACB94 /* AppDelegate.swift in Sources */,
 				B7FC144323EC864A001487D4 /* TopStory.swift in Sources */,
 				B77B40E423EC7177003ACB94 /* NewsFeedView.swift in Sources */,
+				B7FC144823EC8BF2001487D4 /* Config.swift in Sources */,
 				B77B40BA23EC6B60003ACB94 /* SceneDelegate.swift in Sources */,
 				B77B40E023EC6E69003ACB94 /* SavedArticlesController.swift in Sources */,
 			);
