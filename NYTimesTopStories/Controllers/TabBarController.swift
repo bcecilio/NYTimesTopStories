@@ -35,6 +35,8 @@ class TabBarController: UITabBarController {
     }
     
     private func loadTabBar() {
-        viewControllers = [newsFeedVC, savedVC, settingsVC]
+        viewControllers = [UINavigationController(rootViewController: newsFeedVC),
+                           UINavigationController(rootViewController: savedVC),
+                           UINavigationController(rootViewController: settingsVC)]
     }
 }
