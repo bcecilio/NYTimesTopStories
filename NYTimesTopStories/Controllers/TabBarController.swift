@@ -16,12 +16,15 @@ class TabBarController: UITabBarController {
     lazy private var newsFeedVC: NewsFeedController = {
         let VC = NewsFeedController()
         VC.tabBarItem = UITabBarItem(title: "News Feed", image: UIImage(systemName: "eyeglasses"), tag: 0)
+        VC.dataPersistence = dataPersistence
         return VC
     }()
     
     lazy private var savedVC: SavedArticlesController = {
         let VC = SavedArticlesController()
         VC.tabBarItem = UITabBarItem(title: "Saved Articles", image: UIImage(systemName: "bookmark.fill"), tag: 1)
+        VC.dataPersistence = dataPersistence
+        VC.dataPersistence.delegate = VC
         return VC
     }()
     

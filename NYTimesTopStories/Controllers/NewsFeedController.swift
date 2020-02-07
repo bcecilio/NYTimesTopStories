@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import DataPersistence
 
 class NewsFeedController: UIViewController {
     
     private let newsFeed = NewsFeedView()
+    
+    public var dataPersistence: DataPersistence<Article>!
     
     private var newsArticles = [Article]() {
         didSet {
@@ -71,6 +74,7 @@ extension NewsFeedController: UICollectionViewDataSource, UICollectionViewDelega
         let article = newsArticles[indexPath.row]
         let detailVC = ArticleDetailController()
         detailVC.article = article
+        detailVC.dataPersistence = dataPersistence
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }

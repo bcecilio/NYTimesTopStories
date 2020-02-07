@@ -8,12 +8,15 @@
 
 import UIKit
 import ImageKit
+import DataPersistence
 
 class ArticleDetailController: UIViewController {
     
     public var article: Article?
     
     private let detailView = ArticleDetailView()
+    
+    public var dataPersistence: DataPersistence<Article>!
     
     override func loadView() {
         view = detailView
@@ -30,7 +33,7 @@ class ArticleDetailController: UIViewController {
             fatalError("did not load article")
         }
         navigationItem.title = newsArticle.title
-        detailView.abstractHeadline.text = article?.abstract
+        detailView.abstractHeadline.text = newsArticle.abstract
         detailView.newsimageView.getImage(with: newsArticle.getArticleImageURL(for: .superJumbo)) { [weak self] (result) in
             switch result {
             case .failure(_):
@@ -46,6 +49,14 @@ class ArticleDetailController: UIViewController {
     }
     
     @objc private func saveArticleButtonPressed(_ sender: UIBarButtonItem) {
-        print("save article button pressed")
+        guard let newsArticle = article else {
+            return
+        }
+        do {
+            // saved to documents directory
+            try dataPersistence.createItem(newsArticle)
+        } catch {
+            print("error saving itee: \(error)")
+        }
     }
 }
