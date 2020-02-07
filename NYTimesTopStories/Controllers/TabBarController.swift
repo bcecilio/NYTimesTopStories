@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import DataPersistence
 
 class TabBarController: UITabBarController {
+    
+    private var dataPersistence = DataPersistence<Article>(filename: "savedArticles.plist")
     
     lazy private var newsFeedVC: NewsFeedController = {
         let VC = NewsFeedController()

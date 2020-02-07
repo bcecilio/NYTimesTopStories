@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import ImageKit
 
 class ArticleDetailController: UIViewController {
     
-    var article: Article?
+    public var article: Article?
+    
+    private let detailView = ArticleDetailView()
+    
+    override func loadView() {
+        view = detailView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +30,19 @@ class ArticleDetailController: UIViewController {
             fatalError("did not load article")
         }
         navigationItem.title = newsArticle.title
+        detailView.abstractHeadline.text = article?.abstract
+        detailView.newsimageView.getImage(with: newsArticle.getArticleImageURL(for: .superJumbo)) { [weak self] (result) in
+            switch result {
+            case .failure(_):
+                DispatchQueue.main.async {
+                    self?.detailView.newsimageView.image = UIImage(systemName: "exclamationmark-octagon")
+                }
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.detailView.newsimageView.image = image
+                }
+            }
+        }
     }
     
     @objc private func saveArticleButtonPressed(_ sender: UIBarButtonItem) {

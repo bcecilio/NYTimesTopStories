@@ -41,8 +41,8 @@ class ArticleDetailView: UIView {
     }
     
     private func commonInit() {
-        setupAbstractHeadline()
         setupNewsImage()
+        setupAbstractHeadline()
     }
     
     private func setupNewsImage() {
@@ -57,6 +57,12 @@ class ArticleDetailView: UIView {
     }
     
     private func setupAbstractHeadline() {
-        
+        addSubview(abstractHeadline)
+        abstractHeadline.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            abstractHeadline.topAnchor.constraint(equalTo: newsimageView.bottomAnchor, constant: 8),
+            abstractHeadline.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            abstractHeadline.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8)
+        ])
     }
 }

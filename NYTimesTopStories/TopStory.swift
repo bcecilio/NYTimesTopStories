@@ -15,7 +15,7 @@ enum ImageFormat: String {
     case standardThumbnail = "Standard Normal"
 }
 
-struct TopStories: Codable {
+struct TopStories: Codable, Equatable {
     let section: String
     let lastUpdated: String
     let results: [Article]
@@ -25,7 +25,7 @@ struct TopStories: Codable {
         case results
     }
 }
-struct Article: Codable {
+struct Article: Codable, Equatable {
     let section: String
     let title: String
     let abstract: String
@@ -39,7 +39,7 @@ struct Article: Codable {
         case multimedia
     }
 }
-struct Multimedia: Codable {
+struct Multimedia: Codable, Equatable {
     let url: String
     let format: String // superJumbo + thumbLarge
     let height: Double
