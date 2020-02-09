@@ -14,10 +14,9 @@ class NewsCell: UICollectionViewCell {
     // image view of the article
     // title of article
     //
-    private lazy var newsimageView: UIImageView = {
-        let image = UIImageView()
+    public lazy var newsimageView: UIImageView = {
+        let image = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         image.image = UIImage(systemName: "photo")
-        image.layer.cornerRadius = 7
         image.contentMode = .scaleAspectFill
         return image
     }() // a function call - calls when its created
@@ -112,6 +111,7 @@ class NewsCell: UICollectionViewCell {
             case .success(let image):
                 DispatchQueue.main.async {
                     self?.newsimageView.image = image
+                    self?.newsimageView.layer.cornerRadius = 7
                 }
             }
         }
