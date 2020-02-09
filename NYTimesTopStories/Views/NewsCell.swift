@@ -33,7 +33,7 @@ class NewsCell: UICollectionViewCell {
     
     private lazy var abstractHeadline: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 3
+        label.numberOfLines = 4
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.text = "Abstract Headline"
         label.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
