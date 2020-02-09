@@ -59,7 +59,7 @@ class NewsFeedView: UIView {
         ])
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.collectionView.layer.transform = CATransform3DMakeScale(1.5, 1.5, 1)
+            self.collectionView.layer.transform = CATransform3DMakeScale(1.1, 1.1, 2)
                 },completion: { finished in
                             UIView.animate(withDuration: 0.3, animations: {
             self.collectionView.layer.transform = CATransform3DMakeScale(1, 1, 1)
