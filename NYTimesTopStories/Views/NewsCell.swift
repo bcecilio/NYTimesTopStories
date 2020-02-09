@@ -18,6 +18,7 @@ class NewsCell: UICollectionViewCell {
         let image = UIImageView()
         image.image = UIImage(systemName: "photo")
         image.contentMode = .scaleAspectFill
+        image.layer.cornerRadius = 7
         return image
     }() // a function call - calls when its created
     
@@ -27,6 +28,7 @@ class NewsCell: UICollectionViewCell {
         label.numberOfLines = 2
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.text = "Article Title"
+        label.font = UIFont(name: "Georgia", size: 20)
         return label
     }()
     
@@ -35,6 +37,8 @@ class NewsCell: UICollectionViewCell {
         label.numberOfLines = 3
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.text = "Abstract Headline"
+        label.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        label.font = UIFont(name: "HelveticaNeue", size: 15)
         return label
     }()
     

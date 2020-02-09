@@ -59,6 +59,7 @@ extension NewsFeedController: UICollectionViewDataSource, UICollectionViewDelega
         }
         let article = newsArticles[indexPath.row]
         cell.configureCell(with: article)
+        cell.alpha = 5
         cell.backgroundColor = .white
         return cell
     }
