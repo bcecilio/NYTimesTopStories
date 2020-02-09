@@ -30,6 +30,8 @@ class NewsFeedController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "Fake But Real News"
         newsFeed.collectionView.delegate = self
         newsFeed.collectionView.dataSource = self
         newsFeed.collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "newsCell")
@@ -46,6 +48,23 @@ class NewsFeedController: UIViewController {
             }
         }
     }
+    
+//    private func convertDateFormater(date: String) -> String {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+//        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+//
+//        guard let date = dateFormatter.date(from: date) else {
+//            assert(false, "no date from string")
+//            return ""
+//        }
+//
+//        dateFormatter.dateFormat = "yyyy MMM EEEE HH:mm"
+//        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+//        let timeStamp = dateFormatter.string(from: date)
+//
+//        return timeStamp
+//    }
 }
 
 extension NewsFeedController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

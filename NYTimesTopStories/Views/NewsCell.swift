@@ -17,8 +17,8 @@ class NewsCell: UICollectionViewCell {
     private lazy var newsimageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "photo")
-        image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 7
+        image.contentMode = .scaleAspectFill
         return image
     }() // a function call - calls when its created
     
@@ -65,7 +65,7 @@ class NewsCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             newsimageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             newsimageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            newsimageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3),
+            newsimageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5),
             newsimageView.widthAnchor.constraint(equalTo: newsimageView.heightAnchor)
         ])
     }
