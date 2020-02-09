@@ -76,13 +76,13 @@ extension NewsFeedController: UICollectionViewDataSource, UICollectionViewDelega
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as? NewsCell else  {
             fatalError("could not downcast to NewsCell")
         }
-        UIView.animate(withDuration: 0.8, animations: {
-            cell.layer.transform = CATransform3DMakeScale(1.05, 1.05, 2)
-        },completion: { finished in
-            UIView.animate(withDuration: 0.0, animations: {
-                cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
-            })
-        })
+//        UIView.animate(withDuration: 0.8, animations: {
+//            cell.layer.transform = CATransform3DMakeScale(1.05, 1.05, 2)
+//        },completion: { finished in
+//            UIView.animate(withDuration: 0.0, animations: {
+//                cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
+//            })
+//        })
         let article = newsArticles[indexPath.row]
         cell.configureCell(with: article)
         cell.alpha = 5
