@@ -20,6 +20,8 @@
 		B77B40E423EC7177003ACB94 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77B40E323EC7177003ACB94 /* NewsFeedView.swift */; };
 		B7A1398723F1AC3F002632CB /* SavedArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1398623F1AC3F002632CB /* SavedArticleView.swift */; };
 		B7A1398923F1B319002632CB /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1398823F1B319002632CB /* EmptyView.swift */; };
+		B7A1398B23F1BB6B002632CB /* SavedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1398A23F1BB6B002632CB /* SavedCell.swift */; };
+		B7A1398D23F1CDC4002632CB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A1398C23F1CDC4002632CB /* SettingsView.swift */; };
 		B7C292A623EDCB6300833C03 /* ArticleDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C292A523EDCB6300833C03 /* ArticleDetailController.swift */; };
 		B7C292A823EDD12200833C03 /* ArticleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C292A723EDD12200833C03 /* ArticleDetailView.swift */; };
 		B7FC144223EC8647001487D4 /* TopStoriesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC144023EC863C001487D4 /* TopStoriesAPIClient.swift */; };
@@ -56,6 +58,8 @@
 		B77B40E323EC7177003ACB94 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
 		B7A1398623F1AC3F002632CB /* SavedArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedArticleView.swift; sourceTree = "<group>"; };
 		B7A1398823F1B319002632CB /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		B7A1398A23F1BB6B002632CB /* SavedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCell.swift; sourceTree = "<group>"; };
+		B7A1398C23F1CDC4002632CB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B7C292A523EDCB6300833C03 /* ArticleDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailController.swift; sourceTree = "<group>"; };
 		B7C292A723EDD12200833C03 /* ArticleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailView.swift; sourceTree = "<group>"; };
 		B7FC143E23EC8520001487D4 /* TopStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopStory.swift; sourceTree = "<group>"; };
@@ -151,9 +155,11 @@
 			children = (
 				B77B40E323EC7177003ACB94 /* NewsFeedView.swift */,
 				B7C292A723EDD12200833C03 /* ArticleDetailView.swift */,
+				B7A1398A23F1BB6B002632CB /* SavedCell.swift */,
 				B718025823EDBE4600E4AD56 /* NewsCell.swift */,
 				B7A1398623F1AC3F002632CB /* SavedArticleView.swift */,
 				B7A1398823F1B319002632CB /* EmptyView.swift */,
+				B7A1398C23F1CDC4002632CB /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 				B7C292A823EDD12200833C03 /* ArticleDetailView.swift in Sources */,
 				B7FC144223EC8647001487D4 /* TopStoriesAPIClient.swift in Sources */,
 				B77B40DE23EC6E46003ACB94 /* NewsFeedController.swift in Sources */,
+				B7A1398D23F1CDC4002632CB /* SettingsView.swift in Sources */,
 				B7C292A623EDCB6300833C03 /* ArticleDetailController.swift in Sources */,
 				B7A1398723F1AC3F002632CB /* SavedArticleView.swift in Sources */,
 				B77B40DA23EC6C14003ACB94 /* TabBarController.swift in Sources */,
@@ -277,6 +284,7 @@
 				B77B40E423EC7177003ACB94 /* NewsFeedView.swift in Sources */,
 				B7FC144823EC8BF2001487D4 /* Config.swift in Sources */,
 				B77B40BA23EC6B60003ACB94 /* SceneDelegate.swift in Sources */,
+				B7A1398B23F1BB6B002632CB /* SavedCell.swift in Sources */,
 				B77B40E023EC6E69003ACB94 /* SavedArticlesController.swift in Sources */,
 				B718025923EDBE4600E4AD56 /* NewsCell.swift in Sources */,
 			);

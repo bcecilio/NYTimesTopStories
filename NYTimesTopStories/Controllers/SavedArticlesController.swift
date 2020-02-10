@@ -17,6 +17,7 @@ class SavedArticlesController: UIViewController {
     
     private var savedArticles = [Article]() {
         didSet{
+            savedView.collectionView.reloadData()
             print("there are \(savedArticles.count) articles")
             if savedArticles.isEmpty {
                 savedView.collectionView.backgroundView = EmptyView(title: "Saved Articles", message: "There are currently no saved articles. Start browsing by tapping on the News Icon.")
@@ -36,7 +37,7 @@ class SavedArticlesController: UIViewController {
         fetchSavedArticles()
         savedView.collectionView.dataSource = self
         savedView.collectionView.delegate = self
-        savedView.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "savedCell")
+        savedView.collectionView.register(SavedCell.self, forCellWithReuseIdentifier: "savedCell")
     }
     
     private func fetchSavedArticles() {
@@ -54,17 +55,21 @@ extension SavedArticlesController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedCell", for: indexPath)
-        cell.backgroundColor = .white
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedCell", for: indexPath) as? SavedCell else {
+            fatalError("could not downcast")
+        }
+        let articleInfo = savedArticles[indexPath.row]
+        cell.configureCell(for: articleInfo)
+        cell.delegate = self
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let maxSize = UIScreen.main.bounds.size
+        let maxSize: CGSize = UIScreen.main.bounds.size
         let spacingBetweenItems: CGFloat = 10
         let numberOfItems: CGFloat = 2
-        let itemHeight: CGFloat = maxSize.height * 0.03
-        let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1) * spacingBetweenItems
+        let itemHeight:CGFloat = maxSize.height * 0.30
+        let totalSpacing: CGFloat = (2 * spacingBetweenItems) + (numberOfItems - 1 ) * spacingBetweenItems
         let itemWidth: CGFloat = (maxSize.width - totalSpacing) / numberOfItems
         return CGSize(width: itemWidth, height: itemHeight)
     }
@@ -80,6 +85,34 @@ extension SavedArticlesController: DataPersistenceDelegate {
     }
     
     func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-        print("item was deleted")
+        fetchSavedArticles()
+    }
+}
+
+extension SavedArticlesController: SavedCellDelegate {
+    func didSelectMoreButton(_ savedCell: SavedCell, article: Article) {
+        print("didSelectMoreButton: \(article.title)")
+        // create an action sheet
+        // cancel + delete action
+        // post MVP
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alertAction in 
+            self.deleteArticle(article)
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(deleteAction)
+        present(alertController, animated: true)
+    }
+    
+    private func deleteArticle(_ article: Article) {
+        guard let index = savedArticles.firstIndex(of: article) else {
+            return
+        }
+        do {
+            try dataPersistence.deleteItem(at: index)
+        } catch {
+            print("error deleting article: \(error)")
+        }
     }
 }
