@@ -23,6 +23,12 @@ class NewsFeedController: UIViewController {
         }
     }
     
+    private var sectionDefault = "Arts" {
+        didSet {
+            
+        }
+    }
+    
     override func loadView() {
         view = newsFeed
     }
@@ -35,10 +41,26 @@ class NewsFeedController: UIViewController {
         newsFeed.collectionView.delegate = self
         newsFeed.collectionView.dataSource = self
         newsFeed.collectionView.register(NewsCell.self, forCellWithReuseIdentifier: "newsCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         getStories()
     }
     
-    private func getStories(for section: String = "Technology") {
+    private func getStories(for section: String = "Arts") {
+        // retrieve section name from UserDefaults
+        if let sectionName = UserDefaults.standard.object(forKey: UserKey.newsSection) as? String {
+            if sectionName != self.sectionDefault {
+                queryAPI(for: sectionName)
+                self.sectionDefault = sectionName
+            }
+        } else {
+            queryAPI(for: sectionDefault)
+        }
+    }
+    
+    private func queryAPI(for section: String) {
         TopStoriesAPIClient.fetchTopStories(for: section) { [weak self] (result) in
             switch result {
             case .failure(let appError):
@@ -48,23 +70,6 @@ class NewsFeedController: UIViewController {
             }
         }
     }
-    
-//    private func convertDateFormater(date: String) -> String {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-//        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-//
-//        guard let date = dateFormatter.date(from: date) else {
-//            assert(false, "no date from string")
-//            return ""
-//        }
-//
-//        dateFormatter.dateFormat = "yyyy MMM EEEE HH:mm"
-//        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-//        let timeStamp = dateFormatter.string(from: date)
-//
-//        return timeStamp
-//    }
 }
 
 extension NewsFeedController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -76,13 +81,6 @@ extension NewsFeedController: UICollectionViewDataSource, UICollectionViewDelega
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as? NewsCell else  {
             fatalError("could not downcast to NewsCell")
         }
-//        UIView.animate(withDuration: 0.8, animations: {
-//            cell.layer.transform = CATransform3DMakeScale(1.05, 1.05, 2)
-//        },completion: { finished in
-//            UIView.animate(withDuration: 0.0, animations: {
-//                cell.layer.transform = CATransform3DMakeScale(1, 1, 1)
-//            })
-//        })
         let article = newsArticles[indexPath.row]
         cell.configureCell(with: article)
         cell.alpha = 5
