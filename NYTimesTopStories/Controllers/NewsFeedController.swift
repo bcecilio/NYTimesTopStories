@@ -85,6 +85,13 @@ extension NewsFeedController: UICollectionViewDataSource, UICollectionViewDelega
         cell.configureCell(with: article)
         cell.alpha = 5
         cell.backgroundColor = .white
+//        UIView.animate(withDuration: 0.5, animations: {
+//            self.newsFeed.collectionView.layer.transform = CATransform3DMakeScale(1.1, 1.1, 2)
+//            },completion: { finished in
+//                        UIView.animate(withDuration: 0.3, animations: {
+//                            self.newsFeed.collectionView.layer.transform = CATransform3DMakeScale(1, 1, 1)
+//                        })
+//                    })
         return cell
     }
     

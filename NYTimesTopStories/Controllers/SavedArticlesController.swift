@@ -77,6 +77,14 @@ extension SavedArticlesController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let article = savedArticles[indexPath.row]
+        let detailVC = ArticleDetailController()
+        detailVC.article = article
+        detailVC.dataPersistence = dataPersistence
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension SavedArticlesController: DataPersistenceDelegate {

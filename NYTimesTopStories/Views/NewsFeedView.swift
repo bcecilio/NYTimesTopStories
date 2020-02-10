@@ -58,12 +58,12 @@ class NewsFeedView: UIView {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
         
-        UIView.animate(withDuration: 0.5, animations: {
-            self.collectionView.layer.transform = CATransform3DMakeScale(1.1, 1.1, 2)
-                },completion: { finished in
-                            UIView.animate(withDuration: 0.3, animations: {
-            self.collectionView.layer.transform = CATransform3DMakeScale(1, 1, 1)
-                            })
-                        })
+//        UIView.animate(withDuration: 0.5, animations: {
+//            self.collectionView.layer.transform = CATransform3DMakeScale(1.1, 1.1, 2)
+//                },completion: { finished in
+//                            UIView.animate(withDuration: 0.3, animations: {
+//            self.collectionView.layer.transform = CATransform3DMakeScale(1, 1, 1)
+//                            })
+//                        })
     }
 }
