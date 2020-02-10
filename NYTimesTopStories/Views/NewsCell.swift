@@ -27,7 +27,7 @@ class NewsCell: UICollectionViewCell {
         label.numberOfLines = 2
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.text = "Article Title"
-        label.font = UIFont(name: "Georgia", size: 20)
+        label.font = UIFont(name: "Georgia-Bold", size: 20)
         return label
     }()
     
